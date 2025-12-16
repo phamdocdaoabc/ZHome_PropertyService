@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: PropertyService
+
+  messages:
+    basename: messages
+    encoding: UTF-8
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/homez
+    username: admin
+    password: 12345678
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            jwk-set-uri: http://localhost:9050/.well-known/jwks.json
+
+  cloud:
+    config:
+      enabled: false
+
+  config:
+    import: ${SPRING_CONFIG_IMPORT:optional:configserver:http://localhost:9296}
+
+  flyway:
+    baseline-on-migrate: true
+    enabled: false
+    locations: classpath:db/migration
+
+  #  zipkin:
+  #    base-url: http://localhost:9411
+  #
+  #  sleuth:
+  #    sampler:
+  #      probability: 1.0
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  main:
+    allow-circular-references: true
+
+  server:
+    port: 9051
+    servlet:
+      context-path: /property-service
+
+  eureka:
+    instance:
+      prefer-ip-address: true
+    client:
+      fetch-registry: true
+      register-with-eureka: true
+      service-url:
+        defaultZone: http://localhost:9099/eureka
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+        springframework:
+          web: DEBUG
+          data: DEBUG
+          boot:
+            autoconfigure:
+              data:
+                rest: DEBUG
+              orm: DEBUG
