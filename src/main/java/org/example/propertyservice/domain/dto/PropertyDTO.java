@@ -9,7 +9,6 @@ import org.example.propertyservice.domain.enums.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.List;
 

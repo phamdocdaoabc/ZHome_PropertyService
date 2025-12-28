@@ -3,7 +3,6 @@ package org.example.propertyservice.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.propertyservice.audit.BaseEntity;
-import org.hibernate.validator.constraints.UniqueElements;
 
 
 @Entity

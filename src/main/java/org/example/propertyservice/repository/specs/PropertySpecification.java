@@ -1,10 +1,6 @@
 package org.example.propertyservice.repository.specs;
 
-import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.JoinType;
-import jakarta.persistence.criteria.Root;
-import org.example.propertyservice.domain.entity.PropertyAddressEntity;
 import org.example.propertyservice.domain.entity.PropertyEntity;
 import org.example.propertyservice.domain.enums.Direction;
 import org.example.propertyservice.domain.enums.LegalStatus;

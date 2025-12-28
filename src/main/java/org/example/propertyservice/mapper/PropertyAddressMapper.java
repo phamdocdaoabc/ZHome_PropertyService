@@ -6,7 +6,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-import java.util.Map;
 
 @Mapper(componentModel = "spring")
 public interface PropertyAddressMapper {
