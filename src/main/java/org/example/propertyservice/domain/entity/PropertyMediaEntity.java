@@ -21,4 +21,5 @@ public class PropertyMediaEntity extends BaseEntity {
     private String mediaUrl;
     @Enumerated(EnumType.STRING)
     private MediaType mediaType;
+    private String fileId;
 }

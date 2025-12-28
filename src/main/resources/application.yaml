@@ -1,6 +1,6 @@
 spring:
   application:
-    name: PropertyService
+    name: PROPERTY-SERVICE
 
   messages:
     basename: messages
@@ -10,6 +10,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/homez
     username: admin
     password: 12345678
+
   jpa:
     properties:
       hibernate:
@@ -18,11 +19,11 @@ spring:
       ddl-auto: none
     show-sql: false
 
-    security:
-      oauth2:
-        resourceserver:
-          jwt:
-            jwk-set-uri: http://localhost:9050/.well-known/jwks.json
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9050/user-service/.well-known/jwks.json
 
   cloud:
     config:
@@ -36,12 +37,12 @@ spring:
     enabled: false
     locations: classpath:db/migration
 
-  #  zipkin:
-  #    base-url: http://localhost:9411
+  # zipkin:
+  #   base-url: http://localhost:9411
   #
-  #  sleuth:
-  #    sampler:
-  #      probability: 1.0
+  # sleuth:
+  #   sampler:
+  #     probability: 1.0
 
   mvc:
     pathmatch:
@@ -50,30 +51,30 @@ spring:
   main:
     allow-circular-references: true
 
-  server:
-    port: 9051
-    servlet:
-      context-path: /property-service
+server:
+  port: 9051
+  servlet:
+    context-path: /property-service
 
-  eureka:
-    instance:
-      prefer-ip-address: true
-    client:
-      fetch-registry: true
-      register-with-eureka: true
-      service-url:
-        defaultZone: http://localhost:9099/eureka
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:9099/eureka
 
-  logging:
-    level:
-      org:
-        hibernate:
-          SQL: DEBUG
-        springframework:
-          web: DEBUG
-          data: DEBUG
-          boot:
-            autoconfigure:
-              data:
-                rest: DEBUG
-              orm: DEBUG
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+      springframework:
+        web: DEBUG
+        data: DEBUG
+        boot:
+          autoconfigure:
+            data:
+              rest: DEBUG
+            orm: DEBUG

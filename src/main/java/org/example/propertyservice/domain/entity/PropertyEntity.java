@@ -5,10 +5,8 @@ import lombok.*;
 import org.example.propertyservice.audit.BaseEntity;
 import org.example.propertyservice.domain.enums.*;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "properties")
@@ -17,7 +15,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @Builder
-public class PropertiesEntity extends BaseEntity {
+public class PropertyEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
@@ -80,11 +78,12 @@ public class PropertiesEntity extends BaseEntity {
     private Integer totalReviews = 0;
 
     @Column(name = "start_date")
-    private Instant startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "end_date")
-    private Instant endDate;
+    private LocalDateTime endDate;
 
     @Column(name = "priority")
     private Long priority;
+
 }

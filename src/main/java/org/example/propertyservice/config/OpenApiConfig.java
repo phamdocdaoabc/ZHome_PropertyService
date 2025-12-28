@@ -17,7 +17,7 @@ public class OpenApiConfig {
                 .components(new Components().addSecuritySchemes(securitySchemeName,
                         new SecurityScheme().name(securitySchemeName).type(SecurityScheme.Type.HTTP).scheme("bearer")
                                 .bearerFormat("JWT")))
-                .info(new Info().title("E-Commerce API Server | Property Service").version("api/v1")
-                        .description("This is the API documentation for E-commerce Property Service"));
+                .info(new Info().title("ZHOME API Server | Property Service").version("api/v1")
+                        .description("This is the API documentation for ZHOME Property Service"));
     }
 }
